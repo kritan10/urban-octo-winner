@@ -116,7 +116,7 @@ fastify.get('/get-transaction-details/:id', async function handler(request, repl
 });
 
 try {
-  await fastify.listen({ port: process.env.FASTIFY_PORT });
+  await fastify.listen({ port: process.env.PORT });
 } catch (err) {
   fastify.log.error(err);
   process.exit(1);
