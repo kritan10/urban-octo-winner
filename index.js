@@ -8,6 +8,10 @@ const fastify = Fastify({
   logger: true,
 });
 
+await fastify.register(cors, {
+  origin: '*',
+});
+
 fastify.register(sqlitePlugin, {
   dbFilename: './db.sqlite',
 });
