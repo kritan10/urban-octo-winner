@@ -13,6 +13,7 @@
   "type": "module",
   "dependencies": {
     "@fastify/cors": "^9.0.1",
+    "dotenv": "^16.4.5",
     "fastify": "^4.28.0",
     "fastify-sqlite-typed": "^0.1.1",
     "lodash": "^4.17.21",

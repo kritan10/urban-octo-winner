@@ -3,7 +3,10 @@ import { validate as validateUuid } from 'uuid';
 import sqlite from 'sqlite3';
 import sqlitePlugin from 'fastify-sqlite-typed';
 import Fastify from 'fastify';
-import cors from '@fastify/cors'
+import cors from '@fastify/cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const fastify = Fastify({
   logger: true,
@@ -113,7 +116,7 @@ fastify.get('/get-transaction-details/:id', async function handler(request, repl
 });
 
 try {
-  await fastify.listen({ port: 3000 });
+  await fastify.listen({ port: process.env.FASTIFY_PORT });
 } catch (err) {
   fastify.log.error(err);
   process.exit(1);
