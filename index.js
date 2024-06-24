@@ -3,6 +3,7 @@ import { validate as validateUuid } from 'uuid';
 import sqlite from 'sqlite3';
 import sqlitePlugin from 'fastify-sqlite-typed';
 import Fastify from 'fastify';
+import cors from '@fastify/cors'
 
 const fastify = Fastify({
   logger: true,
