@@ -70,7 +70,11 @@ fastify.get('/docs', async function handler(request, reply) {
       },
       { path: '/get-transaction-details/:id', method: 'GET', info: 'get txn details by txn id. the txn id can be found in the response of /make-payment' },
     ],
-    statusCodes: { SUCCESS_CODES: [100, 200], FAILURE_CODES: [101, 400, 401], SUSPICIOUS_CODES: [102, 200, 400] },
+    statusCodes: {
+      SUCCESS_CODES: [100, 200],
+      FAILURE_CODES: [101, 400, 401],
+      SUSPICIOUS_CODES: [102, 200, 400, 'suspicious is random but can be obtained by sending amount == 9000'],
+    },
   };
 });
 
@@ -110,7 +114,7 @@ fastify.route({
       });
     }
 
-    const randomCode = _.sample(CODES);
+    const randomCode = amount == 9000 ? SUSPICIOUS_CODE : _.sample(CODES);
 
     if (randomCode == FAILURE_CODE) {
       return {
