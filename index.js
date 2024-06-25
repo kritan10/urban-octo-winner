@@ -126,7 +126,7 @@ fastify.route({
     );
     const [txnDetails] = await fastify.db.all(`SELECT * FROM transactions WHERE transaction_id = ?`, [result.transaction_id]);
     return {
-      status: SUCCESS_CODE,
+      status: randomCode,
       message: randomCode == SUCCESS_CODE ? 'Transaction completed successfully' : 'Suspicious transaction. Please validate the transaction status with txn Id',
       txnDetail: JSON.stringify({ ...txnDetails, status: randomCode }),
     };
